@@ -7,6 +7,7 @@ from flask import send_from_directory, make_response
 from app import f_app, root_dir
 
 @f_app.route('/')
+@f_app.route('/test')
 def index():
 	return make_response(open('app/base/index.htm').read())
 
