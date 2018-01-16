@@ -1,8 +1,66 @@
-<html>
+<!doctype html>
+<html lang="en" ng-app="WeightApp" class="uk-height-1-1">
+
 	<head>
+		<!-- favicon -->
+		<!-- TODO: Insert favicon -->
+
+		<!-- angular modules -->
+		<script src="plugin/js/angular.min.js"></script>
+		<script src="plugin/js/angular-animate.min.js"></script>
+		<script src="plugin/js/angular-ui-router.min.js"></script>
+
+		<!-- UI Kit -->
+		<script src="plugin/js/uikit.min.js"></script>
+		<link rel="stylesheet" href="plugin/css/uikit.min.css">
+
+		<!-- WeightSite css -->
+		<link rel="stylesheet" href="css/basic.css">
+
+		<!-- basic settings -->
+		<title>{{pageTitle}}</title>
+		<meta charset="utf-8">
+		<!--<base href="/">-->
 
 	</head>
-	<body>
 
+	<body ng-controller="mainctrl" class="uk-height-1-1">
+
+		<!-- Main Nav Bar -->
+		<header>
+			<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" style="position: absolute;">
+				<nav class="uk-navbar-container" uk-navbar="mode: click">
+					<div class="uk-navbar-left">
+						<ul class="uk-navbar-nav">
+							<li>
+								<a uk-navbar-toggle-icon></a>
+								<div class="uk-navbar-dropdown">
+									<!-- TODO: Change navigation -->
+									<ul class="uk-nav uk-navbar-dropdown-nav">
+										<li>
+											<a href="#dashboard">Dashboard</a>
+										</li>
+										<li>
+											<a href="#addWeight">Add Weight</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<!-- TODO: change application name, insert logo -->
+							<a class="uk-navbar-item uk-logo">WeightSite</a>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Main Nav Bar -->
+		<div ui-view class="mainView"></div>
+
+
+		<!-- weightsite js -->
+		<script src="js/app.js"></script>
+		<script src="js/services.js"></script>
 	</body>
+
 </html>

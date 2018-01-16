@@ -21,7 +21,7 @@ def serve_static_css(filename):
 
 @f_app.route('/html/<path:filename>')
 def serve_static_html(filename):
-	return send_from_directory(os.path.join(root_dir, 'static', 'partials'), filename)
+	return send_from_directory(os.path.join(root_dir, 'static', 'html'), filename)
 
 @f_app.route('/pics/<path:filename>')
 def serve_static_pics(filename):
