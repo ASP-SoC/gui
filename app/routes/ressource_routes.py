@@ -30,3 +30,7 @@ def serve_static_pics(filename):
 @f_app.route('/plugin/<path:filename>')
 def service_static_plugin(filename):
 	return send_from_directory(os.path.join(root_dir, 'static', 'plugin'), filename)
+
+@f_app.route('/favicon.ico')
+def service_favicon():
+	return send_from_directory(os.path.join(root_dir, 'static', 'pics'), 'favicon.ico')
