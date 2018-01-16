@@ -1,6 +1,6 @@
 var app = angular.module('AspApp', ['ui.router', 'Services']);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
 		.state('/', {
 			url: '/',
@@ -12,6 +12,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 			controller: 'testController'
 		})
 	$urlRouterProvider.otherwise('/');
+
+	$locationProvider.html5Mode(true);
+	$locationProvider.hashPrefix('');
 });
 
 app.controller('mainctrl', function ($scope, $rootScope, $state, $stateParams) {
