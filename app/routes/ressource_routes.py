@@ -8,7 +8,7 @@ from app import f_app, root_dir
 
 @f_app.route('/')
 def index():
-	return make_response(open('app/base/basic_site.htm').read())
+	return make_response(open('app/base/base.htm').read())
 
 # directives to get js, css, html and plugin files
 @f_app.route('/js/<path:filename>')

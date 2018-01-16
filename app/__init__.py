@@ -12,6 +12,5 @@ f_app = Flask(__name__)
 f_app.config.from_object('app.config.DevelopmentConfig')
 
 
-
 # get all routes for the system
 import app.routes
