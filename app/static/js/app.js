@@ -1,4 +1,4 @@
-var app = angular.module('AspApp', ['ui.router', 'Services']);
+var app = angular.module('AspApp', ['ngMaterial', 'ui.router', 'Services']);
 
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
@@ -6,7 +6,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			url: '/',
 			templateUrl: '/html/home.htm'
 		})
-		.state('/test', {
+		.state('test', {
 			url: '/test',
 			templateUrl: '/html/test.htm',
 			controller: 'testController'
@@ -17,14 +17,24 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$locationProvider.hashPrefix('');
 });
 
-app.controller('mainctrl', function ($scope, $rootScope, $state, $stateParams) {
+app.controller('mainctrl', function ($scope, $mdSidenav) {
 
 	$scope.init = function () {
-
+		console.info("init");
 	};
+
+	$scope.navigation = [
+		{ name: 'Home', link: '/'},
+		{ name: 'Test', link: 'test' }];
+
+	$scope.toggleSidenav = function (menuId) {
+		$mdSidenav(menuId).toggle();
+	};
+
 
 });
 
 app.run(function ($state, $rootScope) {
+	console.log('statechange')
 	$rootScope.$state = $state;
 })

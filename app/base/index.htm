@@ -2,66 +2,98 @@
 <html lang="en" ng-app="AspApp" class="uk-height-1-1">
 
 	<head>
-		<!-- favicon -->
-		<!-- TODO: Insert favicon -->
 
-		<!-- angular modules -->
+		<title>{{pageTitle}}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<base href="/">
+
+		<!-- ASP-SoC css -->
+		<link rel="stylesheet" href="css/basic.css">
+
+		<!-- Angular Material CSS-->
+		<link rel="stylesheet" href="plugin/css/angular-material.min.css">
+
+		<!-- Google Icons https://design.google.com/icons -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+		<!-- Angular JS -->
 		<script src="plugin/js/angular.min.js"></script>
+		<script src="plugin/js/angular-aria.min.js"></script>
 		<script src="plugin/js/angular-animate.min.js"></script>
 		<script src="plugin/js/angular-ui-router.min.js"></script>
 
-		<!-- UI Kit -->
-		<script src="plugin/js/uikit.min.js"></script>
-		<link rel="stylesheet" href="plugin/css/uikit.min.css">
-
-		<!-- WeightSite css -->
-		<link rel="stylesheet" href="css/basic.css">
-
-		<!-- basic settings -->
-		<title>{{pageTitle}}</title>
-		<meta charset="utf-8">
-		<base href="/">
+		<!-- Angular Material-->
+		<script src="plugin/js/angular-material.min.js"></script>
 
 	</head>
 
 	<body ng-controller="mainctrl" class="uk-height-1-1">
 
-		<!-- Main Nav Bar -->
-		<header>
-			<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" style="position: absolute;">
-				<nav class="uk-navbar-container" uk-navbar="mode: click">
-					<div class="uk-navbar-left">
-						<ul class="uk-navbar-nav">
-							<li>
-								<a uk-navbar-toggle-icon></a>
-								<div class="uk-navbar-dropdown">
-									<!-- TODO: Change navigation -->
-									<ul class="uk-nav uk-navbar-dropdown-nav">
-										<li>
-											<a href="#dashboard">Dashboard</a>
-										</li>
-										<li>
-											<a href="#addWeight">Add Weight</a>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<!-- TODO: change application name, insert logo -->
-							<a class="uk-navbar-item uk-logo">WeightSite</a>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</header>
+		<!-- toolbar -->
+		<md-whiteframe class="md-whiteframe-3dp" layout>
+			<md-toolbar>
+				<div class="md-toolbar-tools">
+					<md-button class="md-icon-button" ng-click="toggleSidenav('nav_left')">
+						<md-icon class="material-icons">view_headline</md-icon>
+					</md-button>
+					<h2>ASP-SoC</h2>
+					<span flex></span>
+				</div>
+			</md-toolbar>
+		</md-whiteframe>
+		<!-- view for pages -->
+		<!--<div class="" layout="column" style="position: relative;" layout-fill flex>
+			<div class="" ng-class="animationClass" layout-fill layout flex ui-view animationlistener animationenter="animationEnter()"
+			 animationleave="animationLeave()" animationmove="animationMove()"></div>
+		</div>-->
 
-		<!-- Main Nav Bar -->
-		<div ui-view class="mainView"></div>
+		<section layout="row" flex>
+
+			<md-sidenav class="md-sidenav-left site-nav" md-component-id="nav_left" md-whiteframe="4">
+
+				<md-toolbar class="md-theme-indigo">
+					<div class="md-toolbar-tools">
+						<md-button class="md-icon-button" ng-click="toggleSidenav('nav_left')">
+						<md-icon class="material-icons">view_headline</md-icon>
+						</md-button>
+						<h1>Navigation</h1>
+						<span flex></span>
+					</div>
+				</md-toolbar>
+
+				<md-content>
+					<nav>
+						<md-list class="nav-list">
+							<md-list-item class="md-1-line nav-list-item" ng-repeat="item in navigation">
+								<a ui-sref="{{item.link}}" ng-click="toggleSidenav('nav_left')" flex>{{item.name}}</a>
+							</md-list-item>
+						</md-list>
+					</nav>
+				</md-content>
+
+			</md-sidenav>
+
+
+			<md-content flex layout-padding>
+
+				<div layout="column" layout-align="top center" md-swipe-right="alert('hallo')">
+					<div class="" ng-class="animationClass" layout-fill layout flex ui-view animationlistener animationenter="animationEnter()"
+					 animationleave="animationLeave()" animationmove="animationMove()"></div>
+
+				</div>
+
+			</md-content>
+
+		</section>
 
 
 		<!-- weightsite js -->
 		<script src="js/app.js"></script>
 		<script src="js/services.js"></script>
 		<script src="js/controller/testController.js"></script>
+		<script src="js/component/channelMux.js"></script>
 	</body>
 
 </html>
