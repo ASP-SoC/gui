@@ -5,7 +5,7 @@ class Driverfile(object):
 	CHANNEL_MUX_CNT = 1
 
 	# TODO: insert correct path
-	CHANNEL_MUX = ['/home/johannes/test.txt']
+	CHANNEL_MUX = ['/dev/channelmux']
 
 	INPUT_MUX_CNT = 1
 
