@@ -1,4 +1,5 @@
-<channel-mux-device device="dev" states="cmd_states" update="cmd_update(value)" ng-repeat="dev in devices"></channel-mux-device>
+
 
 <input-mux-device device="imd" states="imd_states" update="imd_update(value)" ng-repeat="imd in imds"></input-mux-device>
 
+<channel-mux-device device="dev" states="cmd_states" update="cmd_update(value)" ng-repeat="dev in cmd_devices"></channel-mux-device>
