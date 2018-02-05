@@ -2,8 +2,8 @@
 	<div class="md-whiteframe-header" layout="row">
 		<div>
 			<h2>Channelmux: {{ $ctrl.device.name }}</h2>
-			<md-button class="md-primary md-raised" ng-click="showAddWeightDialog($event)">
-				Add
+			<md-button class="md-primary md-raised" ng-click="$ctrl.update({ value: $ctrl.device.id })">
+				Update
 			</md-button>
 		</div>
 	</div>
