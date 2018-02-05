@@ -43,6 +43,17 @@
 					<span>Error in State</span>
 				</div>
 			</div>
+			<md-divider></md-divider>
+			<div layout="row">
+				<md-input-container>
+					<md-checkbox ng-model="$ctrl.device.model.mute_left" aria-label="Mute left channel">
+						mute left channel
+					</md-checkbox>
+					<md-checkbox ng-model="$ctrl.device.model.mute_right" aria-label="Mute right channel">
+						mute right channel
+					</md-checkbox>
+				</md-input-container>
+			</div>
 		</form>
 	</div>
 </md-whiteframe>
