@@ -41,10 +41,10 @@ class ChannelMuxDevice(object):
 			if self.merge == ChannelMuxDevice.CONST_MERGE_RIGHT:
 				conf_byte += 1
 
-		if self.mute_left:
+		if self.mute_right:
 			conf_byte += 4
 
-		if self.mute_right:
+		if self.mute_left:
 			conf_byte += 8
 
 		with open(self.__driverfile, 'wb') as dev_file:
