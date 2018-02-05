@@ -19,30 +19,6 @@
 					</md-select>
 				</md-input-container>
 			</div>
-			<md-divider></md-divider>
-			<div layout="row" ng-switch="$ctrl.device.model.usage">
-				<div ng-switch-when="1">
-					<h5>Exchange</h5>
-					<md-input-container>
-						<label>Function</label>
-						<md-select ng-model="$ctrl.device.model.exchange">
-							<md-option ng-repeat=" state in $ctrl.states.exchange" ng-value="state.val">{{state.name}}</md-option>
-						</md-select>
-					</md-input-container>
-				</div>
-				<div ng-switch-when="2">
-					<h5>Merge</h5>
-					<md-input-container>
-						<label>Function</label>
-						<md-select ng-model="$ctrl.device.model.merge">
-							<md-option ng-repeat=" state in $ctrl.states.merge" ng-value="state.val">{{state.name}}</md-option>
-						</md-select>
-					</md-input-container>
-				</div>
-				<div ng-switch-default>
-					<span>Error in State</span>
-				</div>
-			</div>
 		</form>
 	</div>
 </md-whiteframe>
