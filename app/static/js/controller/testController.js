@@ -23,4 +23,21 @@ app.controller('testController', function ($scope, DataService) {
 				merge: 1
 			}
 		}];
+	$scope.imds = [
+		{
+			name: 'InputMuxDevice1',
+			model: {
+				usage: 1,
+				exchange: 1,
+				merge: 1
+			}
+		},
+		{
+			name: 'InputMuxDevice1',
+			model: {
+				usage: 1,
+				exchange: 1,
+				merge: 1
+			}
+		}];s
 });

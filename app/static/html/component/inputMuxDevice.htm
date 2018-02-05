@@ -1,0 +1,27 @@
+<md-whiteframe class="app_whiteframe md-whiteframe-3dp whiteframe-min" layout="column">
+	<div class="md-whiteframe-header" layout="row">
+		<div>
+			<h2>Channelmux: {{ $ctrl.device.name }}</h2>
+			<md-button class="md-primary md-raised" ng-click="showAddWeightDialog($event)">
+				Add
+			</md-button>
+		</div>
+	</div>
+	<div class="md-whiteframe-content" layout="row">
+		<form ngsubmit="" layout="column">
+			<div layout="row">
+				<md-input-container>
+					<label>Mode:</label>
+					<md-select ng-model="$ctrl.device.model.usage">
+						<md-option ng-repeat="state in $ctrl.device.states" ng-value="state.abbrev">
+							{{state.abbrev}}
+						</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
+			<div layout="row">
+
+			</div>
+		</form>
+	</div>
+</md-whiteframe>
