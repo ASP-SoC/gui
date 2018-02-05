@@ -1,3 +1,4 @@
+#!venv/bin/python3
 from app import f_app
 
 if __name__ == "__main__":
