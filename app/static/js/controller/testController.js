@@ -6,8 +6,10 @@ app.controller('testController', function ($scope, DataService) {
 		exchange: [{ val: 1, name: 'Straight' }, { val: 2, name: 'Cross' }],
 		merge: [{ val: 1, name: 'Left' }, { val: 2, name: 'Right' }]
 	}
+
 	$scope.devices = [
 		{
+			id: 0,
 			name: 'One',
 			model: {
 				usage: 1,
@@ -16,13 +18,16 @@ app.controller('testController', function ($scope, DataService) {
 			}
 		},
 		{
+			id: 1,
 			name: 'Two',
 			model: {
 				usage: 1,
 				exchange: 1,
 				merge: 1
 			}
-		}];
+		}
+	];
+
 	$scope.imds = [
 		{
 			name: 'InputMuxDevice1',
@@ -39,5 +44,11 @@ app.controller('testController', function ($scope, DataService) {
 				exchange: 1,
 				merge: 1
 			}
-		}];s
+		}
+	];
+
+	$scope.cmd_update = function(id) {
+		console.log(id);
+		console.log($scope.devices[id])
+	}
 });
