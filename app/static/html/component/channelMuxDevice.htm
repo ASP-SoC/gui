@@ -1,0 +1,20 @@
+<md-whiteframe class="app_whiteframe md-whiteframe-3dp whiteframe-min" layout="column">
+	<div class="md-whiteframe-header" layout="row">
+		<div>
+			<h2>Weight</h2>
+			<md-button class="md-primary md-raised" ng-click="showAddWeightDialog($event)">
+				Add
+			</md-button>
+		</div>
+	</div>
+	<div ng-if="weightData_available" layout="column">
+		<div class="md-whiteframe-content" layout="row">
+			<canvas id="line" class="chart chart-line datachart" chart-data="weightHistory.data" chart-labels="weightHistory.labels"
+			 chart-series="weightHistory.series" chart-options="weightHistory.options" chart-dataset-override="weightHistory.datasetOverride">
+			</canvas>
+		</div>
+	</div>
+	<div class="data_load_error" ng-if="!weightData_available" layout-align="center center" layout="column">
+		<span>{{ $ctrl.device.name }}</span>
+	</div>
+</md-whiteframe>
