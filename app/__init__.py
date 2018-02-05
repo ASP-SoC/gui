@@ -11,7 +11,7 @@ from app.driver_files import Driverfile
 root_dir = os.path.dirname(os.path.realpath(__file__))
 
 f_app = Flask(__name__)
-f_app.config.from_object('app.config.DevelopmentConfig')
+f_app.config.from_object('app.config.ProductionConfig')
 
 
 # setup environment
