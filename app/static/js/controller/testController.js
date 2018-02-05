@@ -7,29 +7,38 @@ app.controller('testController', function ($scope, DataService) {
 		merge: [{ val: 1, name: 'Left' }, { val: 2, name: 'Right' }]
 	}
 
-	$scope.devices = [
-		{
-			id: 0,
-			name: 'One',
-			model: {
-				usage: 1,
-				exchange: 1,
-				merge: 1
-			}
-		},
-		{
-			id: 1,
-			name: 'Two',
-			model: {
-				usage: 1,
-				exchange: 1,
-				merge: 1
-			}
-		}
-	];
+	/* ----------------------------------------------------
+	 *	GET FUNCTIONS
+	 * ----------------------------------------------------
+	 */
+
+
+	$scope.cmd_get = function () {
+		DataService.get_cmd()
+			.then(function (data) {
+				$scope.cmd_devices = data;
+			})
+			.catch(function (data) {
+
+			});
+	}
+
+	$scope.cmd_get();
+
+	/* ----------------------------------------------------
+	 *	UPDATE FUNCTIONS
+	 * ----------------------------------------------------
+	 */
 
 	$scope.cmd_update = function(id) {
 		console.log(id);
 		console.log($scope.devices[id])
+		DataService.update_cmd({ id: id, model: $scope.devices[id].model})
+		.then(function (data) {
+
+		})
+		.catch(function (data) {
+
+		});
 	}
 });

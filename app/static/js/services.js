@@ -27,16 +27,52 @@ services.service('DataService', function ($q, $timeout, $http) {
 		var deferred = $q.defer();
 
 		$http.post('/api/v0.1/test/get')
-			.success(function (data, status, headers, config) {
-				if (status === 200 && data.success) {
-					deferred.resolve(data.data);
-				} else if (!data.success) {
-					deferred.reject(data.msg)
+			.then(function (response) {
+				if (response.status === 200 && response.data.success) {
+					deferred.resolve(response.data.data);
 				}
-			})
-			.error(function (data, status, headers, config) {
-				deferred.reject(data);
+				else {
+					deferred.reject(response.data.msg);
+				}
+			}, function (response) {
+				deferred.reject(response.data);
 			});
+
+		return deferred.promise;
+	}
+
+	this.update_cmd = function (data) {
+		var deferred = $q.defer();
+
+		$http.post('/api/v0.1/cmd/update', data)
+		.then(function (response) {
+			if (response.status === 200 && response.data.success) {
+				deferred.resolve();
+			}
+			else {
+				deferred.reject(response.data.msg);
+			}
+		}, function (response) {
+			deferred.reject(response.data);
+		});
+
+		return deferred.promise;
+	}
+
+	this.get_cmd = function () {
+		var deferred = $q.defer();
+
+		$http.post('/api/v0.1/cmd/get')
+		.then(function (response) {
+			if (response.status === 200 && response.data.success) {
+				deferred.resolve(response.data.data);
+			}
+			else {
+				deferred.reject(response.data.msg);
+			}
+		}, function (response) {
+			deferred.reject(response.data);
+		});
 
 		return deferred.promise;
 	}
