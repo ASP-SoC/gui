@@ -59,8 +59,8 @@ app.controller('testController', function ($scope, DataService) {
 
 	$scope.cmd_update = function(id) {
 		console.log(id);
-		console.log($scope.devices[id])
-		DataService.update_cmd({ id: id, model: $scope.devices[id].model})
+		console.log($scope.cmd_devices[id])
+		DataService.update_cmd({ id: id, model: $scope.cmd_devices[id].model})
 		.then(function (data) {
 
 		})

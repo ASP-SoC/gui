@@ -11,6 +11,7 @@ from app.services import RequestService, DataService, DataFailure
 @f_app.route('/api/v0.1/cmd/update', methods=['POST'])
 def cmd_update():
 	param_list = ['id', 'model']
+	sub_param_list = ['mode', 'exchange', 'merge', 'mute_left', 'mute_right']
 
 	ret = {}
 	ret['success'] = True

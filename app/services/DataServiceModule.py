@@ -2,35 +2,25 @@
 # general imports
 
 # personal imports
+from app import environment
 
 class DataService(object):
 
 	def cmd_update(id, data):
-		print(id)
-		print(data)
+
+		elem = environment['channel_mux_list'][id]
+
+		elem.update(data['mode'], data['exchange'], data['merge'], data['mute_left'], data['mute_right'])
+
+		elem.write_config()
 
 	def cmd_get():
+
 		ret = []
 
-		elem = {}
-		elem['id'] = 0
-		elem['name'] = 'One'
-		elem['model'] = {}
-		elem['model']['usage'] = 1
-		elem['model']['exchange'] = 1
-		elem['model']['merge'] = 1
+		for tmp in environment['channel_mux_list']:
+			ret.append(tmp.toDict())
 
-		ret.append(elem)
-
-		elem = {}
-		elem['id'] = 1
-		elem['name'] = 'Two'
-		elem['model'] = {}
-		elem['model']['usage'] = 2
-		elem['model']['exchange'] = 1
-		elem['model']['merge'] = 2
-
-		ret.append(elem)
 		return ret
 
 class DataFailure(Exception):

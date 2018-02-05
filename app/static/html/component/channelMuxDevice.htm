@@ -12,7 +12,7 @@
 			<div layout="row">
 				<md-input-container>
 					<label>Mode</label>
-					<md-select ng-model="$ctrl.device.model.usage">
+					<md-select ng-model="$ctrl.device.model.mode">
 						<md-option ng-repeat="state in $ctrl.states.mode" ng-value="state.val">
 							{{state.name}}
 						</md-option>
@@ -20,7 +20,7 @@
 				</md-input-container>
 			</div>
 			<md-divider></md-divider>
-			<div layout="row" ng-switch="$ctrl.device.model.usage">
+			<div layout="row" ng-switch="$ctrl.device.model.mode">
 				<div ng-switch-when="1">
 					<h5>Exchange</h5>
 					<md-input-container>
