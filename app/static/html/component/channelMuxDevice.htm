@@ -8,19 +8,40 @@
 		</div>
 	</div>
 	<div class="md-whiteframe-content" layout="row">
-		<form ngsubmit="" layout="column">
+		<form ngsubmit="" layout="column" style="width: 100%;">
 			<div layout="row">
 				<md-input-container>
-					<label>Mode:</label>
+					<label>Mode</label>
 					<md-select ng-model="$ctrl.device.model.usage">
-						<md-option ng-repeat="state in $ctrl.device.states" ng-value="state.abbrev">
-							{{state.abbrev}}
+						<md-option ng-repeat="state in $ctrl.states.mode" ng-value="state.val">
+							{{state.name}}
 						</md-option>
 					</md-select>
 				</md-input-container>
 			</div>
-			<div layout="row">
-
+			<md-divider></md-divider>
+			<div layout="row" ng-switch="$ctrl.device.model.usage">
+				<div ng-switch-when="1">
+					<h5>Exchange</h5>
+					<md-input-container>
+						<label>Function</label>
+						<md-select ng-model="$ctrl.device.model.exchange">
+							<md-option ng-repeat=" state in $ctrl.states.exchange" ng-value="state.val">{{state.name}}</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+				<div ng-switch-when="2">
+					<h5>Merge</h5>
+					<md-input-container>
+						<label>Function</label>
+						<md-select ng-model="$ctrl.device.model.merge">
+							<md-option ng-repeat=" state in $ctrl.states.merge" ng-value="state.val">{{state.name}}</md-option>
+						</md-select>
+					</md-input-container>
+				</div>
+				<div ng-switch-default>
+					<span>Error in State</span>
+				</div>
 			</div>
 		</form>
 	</div>
