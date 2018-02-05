@@ -9,7 +9,7 @@ class RequestService(object):
 		if not params:
 			raise ValueError('Parameters required')
 
-		request_data = json.loads(params)
+		request_data = json.loads(str(params))
 
 		if not all (param in request_data for param in param_list):
 			raise ValueError('Parameters invalid')
