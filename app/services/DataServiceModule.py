@@ -23,5 +23,21 @@ class DataService(object):
 
 		return ret
 
+	def imd_update(id, data):
+		elem = environment['input_mux_list'][id]
+
+		elem.update(data['mode'])
+
+		elem.write_config()
+
+	def imd_get():
+
+		ret = []
+
+		for tmp in environment['input_mux_list']:
+			ret.append(tmp.toDict())
+
+		return ret
+
 class DataFailure(Exception):
 	""" Failure during data access """

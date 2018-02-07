@@ -76,4 +76,40 @@ services.service('DataService', function ($q, $timeout, $http) {
 
 		return deferred.promise;
 	}
+
+	this.update_imd = function (data) {
+		var deferred = $q.defer();
+
+		$http.post('/api/v0.1/imd/update', data)
+			.then(function (response) {
+				if (response.status === 200 && response.data.success) {
+					deferred.resolve();
+				}
+				else {
+					deferred.reject(response.data.msg);
+				}
+			}, function (response) {
+				deferred.reject(response.data);
+			});
+
+		return deferred.promise;
+	}
+
+	this.get_imd = function () {
+		var deferred = $q.defer();
+
+		$http.post('/api/v0.1/imd/get')
+			.then(function (response) {
+				if (response.status === 200 && response.data.success) {
+					deferred.resolve(response.data.data);
+				}
+				else {
+					deferred.reject(response.data.msg);
+				}
+			}, function (response) {
+				deferred.reject(response.data);
+			});
+
+		return deferred.promise;
+	}
 });
